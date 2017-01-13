@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			.fl{float:left;}
+			.fr{float:right;}
+			#box{
+				width:400px;
+				height:204px;
+				border:3px solid #000;
+				margin:100px auto;
+				
+			}
+			ul li{
+				width:400px;
+				height:50px;
+				list-style: none;
+				border-bottom: 1px solid #000;
+			}
+			ul li p{
+				float:left;
+				line-height:40px;
+				}
+			ul li .btn,.btnb{
+				display:line-block;
+				width:40px;
+				height:30px;
+				background:rgba(0,0,0, .5);
+				margin:14px 0 0 10px;
+				text-align:center;
+				line-height:30px;
+			}
+		    .xiugai{display:none;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<div class="show">
+						<p class="txt">我是要被修改的文字</p>
+						<span class="btn">修改</span>
+					</div>
+					<div class="xiugai">
+						<input type="text "  class="input">
+						<span class="btnb ">确认</span>
+					</div>
+				</li>
+				<li>
+					<div class="show">
+						<p class="txt">我是要被修改的文字</p>
+						<span class="btn">修改</span>
+					</div>
+					<div class="xiugai">
+						<input type="text "  class="input">
+						<span class="btnb ">确认</span>
+					</div>
+				</li>
+				<li>
+					<div class="show">
+						<p class="txt">我是要被修改的文字</p>
+						<span class="btn">修改</span>
+					</div>
+					<div class="xiugai">
+						<input type="text "  class="input">
+						<span class="btnb ">确认</span>
+					</div>
+				</li>
+				<li>
+					<div class="show">
+						<p class="txt">我是要被修改的文字</p>
+						<span class="btn">修改</span>
+					</div>
+					<div class="xiugai">
+						<input type="text "  class="input">
+						<span class="btnb ">确认</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+		var aBtn=document.querySelectorAll('.btn');
+		var aTxt=document.querySelectorAll('.txt');
+		var aInput=document.querySelectorAll('.input');
+		var aBtnb=document.querySelectorAll('.btnb');
+		var aShow=document.querySelectorAll('ul li .show');
+		var aXiugai=document.querySelectorAll('ul li .xiugai');
+		var length=aBtn.length;
+      
+		for(var i=0;i<length;i++)
+		{
+			aBtn[i].i=i;
+			aBtnb[i].i=i;
+			aBtn[i].onclick=function(){
+				var index=this.i;
+				change(index,true);
+				aInput[index].value=aTxt[index].innerHTML;
+			}
+			aBtnb[i].onclick=function(){
+				var index=this.i;
+				change(index,false);
+				aXiugai[index].style.display='none';
+			}
+		}
+		function change(index,bool){
+			aShow[index].style.display=bool?'none':'block';
+			aXiugai[index].style.display=bool?'block':'none';
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:420px;
+				margin:100px auto 0;
+				background:#ddd;
+				border:2px solid #ddd;
+			}
+			.detail{color:#2F89EA;}
+			h2 {margin:5px 0 10px 25px;}
+			#txt{text-indent: 10px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h2>微信小程序马上就要上线啦</h2>
+			<span id="txt">微信小程序在2017年1月9日凌晨正式上线,
+				用户用户现在可以通过二维码、搜索等方式体验到开发者们</span>
+			<span class="detail"> 【详情】 </span>
+		</div>
+		<script type="text/javascript">
+			var txt='微信小程序在2017年1月9日凌晨正式上线，用户现在可以通过二维码、搜索等方式体验到开发者们开发的小程序。用户只要将微信更新至最新版本，体验过小程序后，便可在发现页面看到小程序TAB。 ';
+			var arr=[txt.slice(0,40),txt];
+			var arr2=['【详情】','【收缩】']
+			var oTxt=document.getElementById('txt');
+			var oDet=document.getElementsByClassName('detail');
+			var index=true;
+			oDet[0].onclick=function(){
+				/*
+				 if(index){
+					oTxt.innerHTML=arr[1];
+					this.innerHTML= '【'+'收缩'+'】';
+				}else{
+					oTxt.innerHTML=arr[0];
+					this.innerHTML= '【详情】';
+				}
+				*/
+              oTxt.innerHTML=arr[index+0];
+              this.innerHTML=arr2[index+0];
+              index=!index;
+			};
+			
+		</script>
+	</body>
+</html>

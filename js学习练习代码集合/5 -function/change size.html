@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		#sub ,#add{
+			display:block;
+			width:50px;
+		    line-height:30px;
+		    background:#248FCE;
+		    float:left;
+		    margin-right:5px;
+		    text-align:center;
+		    font-size:25px; 
+		}
+		#txt{
+			clear:both;
+			font-size:16px;
+		}
+	</style>
+	<body>
+		<span id = "sub">-</span>
+		<span id = "add">+</span>
+		<div id = "txt">
+			其实上上周就可以出此文了，只是，就跟谈恋爱一样的，要讲求时机以及心情。
+			这会儿，看完了海贼王情报，处理了邮件，文章评论以及部分同行靠谱的提问，
+			加上好几天没有动“笔头子”了，于是，很有兴致，分享些杂碎的知识点。
+                        头一次写星星点点知识的分享。不过应该压力不大，貌似不需要什么严谨的逻辑。想到了就说，
+                        再堆麻将版摞起来就可以了~~
+                        项目是做移动网页版的内容，从塞班S60到iPhone以及Android手机以及window phone都要支持。
+                        采用渐进增强策略，塞班S60布局良好，
+                        功能可以正常使用，至于模样嘛，看得过去就可以             
+		</div>
+		<script type="text/javascript">
+		 
+			var oSub=document.getElementById("sub");
+			var oAdd=document.getElementById("add");
+			var oTxt=document.getElementById("txt");
+			
+			var n=16;
+			
+				oAdd.onclick=function(){
+					if(n>=12)  n++;
+					oTxt.style.fontSize=n+'px';
+				}
+				oSub.onclick=function(){
+					if(n>12)  n--;					
+					oTxt.style.fontSize=n+'px';
+				}
+		   
+		</script>
+	</body>
+</html>

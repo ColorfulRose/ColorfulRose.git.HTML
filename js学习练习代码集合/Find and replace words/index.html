@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		*{margin:0;padding:0;}
+		
+			#box{
+				width:420px;
+				height:230px;
+				margin:100px auto;
+				border:2px solid #ddd;
+			}
+		    #box #inp{
+				margin:8px 0 10px 10px;
+		    }
+			#box #txt{
+				line-height:30px;
+				font-size:20px;
+				text-indent:10px;
+			}
+			.red{
+				background:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p id="inp">
+				<input type="text" name="" id="tsear">
+				<input type="text" name="" id ="trepl">
+				<input type="button" value="查找" id="search">
+				<input type="button" value="替换" id="replace">
+			</p>
+			<p id="txt">
+				　微信小程序在2017年1月9日凌晨正式上线，
+				用户现在可以通过二维码、搜索等方式体验到开发者们开发的小程序。
+				用户只要将微信更新至最新版本，体验过小程序后，
+				便可在发现页面看到小程序TAB。
+			</p>
+		</div>
+		<script type="text/javascript">
+			var oTsear=document.getElementById('tsear');
+			var oTrepl=document.getElementById('trepl');
+			var oSrchBtn=document.getElementById('search');
+			var oReplBtn=document.getElementById('replace');
+			var oTxt=document.getElementById('txt');
+			var txt= oTxt.innerHTML;
+			oSrchBtn.onclick=function(){
+				var word=oTsear.value;
+				oTxt.innerHTML=word?txt.split(word).join('<span class="red">'+word+'</span>'):txt;
+				/*if(word){
+					oTxt.innerHTML=txt.split(word).join('<span class="red">'+word+'</span>');
+				}else{*/	
+			}
+			oReplBtn.onclick=function(){
+				var word1=oTsear.value; 
+				var word2=oTrepl.value;
+				oTxt.innerHTML=word1?txt.split(word1).join('<span class="red">'+word2+'</span>'):txt;
+			}
+		</script>
+	</body>
+</html>

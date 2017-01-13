@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		/*通用样式*/
+		*{margin:0;padding:0;}
+		a{text-decoration: none;}
+		#box{
+			width:214px;
+			height:150px;
+			border:1px solid #c36;
+			margin:150px 400px;
+			position: relative;
+		}
+		#box #pic img{display:none;}
+		#btn #prev ,#btn #next{
+			position:absolute;
+			top:40%;
+			width:35px;
+			height:35px;
+			background:rgba(0,0,0,0.3);
+			text-align: center;
+			line-height: 35px;
+			color: #fff;
+			font-size:18px;
+		}
+		
+		#btn #prev{left:-35px;}
+		#btn #next{right:-35px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="pic">
+				<img src="img/product2.png" />
+				<img src="img/product3.png" />
+				<img src="img/product4.png" />
+				<img src="img/product5.png" />
+			</div>
+			<div id="btn">
+				<a href="javascript:;" id="prev">&lt;</a>
+				<a href="javascript:;" id="next">&gt;</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var aImg=document.getElementsByTagName('img');
+			var length=aImg.length;
+			var num=0;
+			aImg[num].style.display='block';
+			next.onclick=function(){
+				aImg[num].style.display='none';
+				num++;
+				if(num==length){
+					num=0;
+				}
+				aImg[num].style.display='block';
+			}
+			prev.onclick=function(){
+				aImg[num].style.display='none';
+				num--;
+				if(num<0){
+					num=length-1;
+				}
+				aImg[num].style.display='block';
+			};
+		</script>
+	</body>
+</html>
