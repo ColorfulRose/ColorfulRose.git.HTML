@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮1">
+		<input type="button" value="按钮2">
+		<input type="button" value="按钮3">
+		<input type="button" value="按钮4">
+		<div>
+			<img src="img/1.jpg" />
+			<img src="img/2.jpg" />
+			<img src="img/3.jpg" />
+			<img src="img/4.jpg" />
+		</div>
+		<script type="text/javascript">
+			var ainput=document.querySelectorAll('input');
+			var  aimg=document.querySelectorAll('img');
+			var  length=ainput.length;
+			var on=0;
+			for(var i=0;i<length;i++)
+			{
+				ainput[i].index=i;
+				ainput[i].onclick=function(){
+					aimg[on].style.display='none';
+					on=this.index;
+					aimg[on].style.display='block';
+				};
+			}
+		</script>
+	</body>
+</html>
