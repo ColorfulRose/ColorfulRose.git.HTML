@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:300px;
+				height:300px;
+				text-align:center;
+				margin:100px auto;
+				background:#ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+		var cont;
+		var str="",str2="",str3="";
+		var oBox=document.getElementById('box');
+			/*for(var i=0;i<5;i++){
+				for(var m=0;m<4-i;m++){
+					 document.write('&nbsp');
+				}
+				for(var j=0;j<i*2+1;j++){
+					document.write('*');
+				}
+				 document.write('<br>');
+			}*/
+			for(var i=0;i<5;i++){
+				for(var m=0;m<4-i;m++){
+					str +='&nbsp';
+				}
+				for(var j=0;j<i*2+1;j++){
+					str +='*';
+				}
+				 str +='<br>';
+			}
+		oBox.innerHTML =str;
+		</script>
+	</body>
+</html>

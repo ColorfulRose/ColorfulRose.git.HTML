@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:250px;
+				height:250px;
+				margin:100px auto;
+				position:relative;
+				border:1px dashed #ddd;
+			}
+			#box div{
+				width:50px;
+				height:50px;
+				background:red;
+				position: absolute;
+				top:0px;
+				left:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var str=' ';
+			var aDiv=box.getElementsByTagName('div');
+			for(var i=0;i<5;i++){
+				if(i<3){
+	                str += '<div style="left:'+i*50+'px;top:'+i*50+'px;">'+ i +'</div>';
+				}else{
+	                str += '<div style="left:'+(5-i-1)*50+'px;top:'+50*i+'px;">'+i+'</div>';
+				}
+			}
+			box.innerHTML = str;
+			for(var i=0;i<aDiv.length;i++){
+				aDiv[i].style.color=randomRgb();
+				aDiv[i].style.background=randomRgb();
+			}
+			function randomRgb(){
+				var r=Math.floor(Math.random()*256);
+				var g=Math.floor(Math.random()*256);
+				var b=Math.floor(Math.random()*256);
+				return "rgb("+r+","+g+","b+")";
+			}
+		</script>
+	</body>
+</html>

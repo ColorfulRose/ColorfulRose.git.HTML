@@ -3,8 +3,116 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			ul li{list-style: none;}
+			#box{
+				width:292px;
+				margin:100px auto;
+				padding-top:10px;
+				padding-bottom:10px;
+				background:#E0F4FA;
+			}
+			
+			#menu p{
+				width:282px;
+				height:30px;
+				font-size:14px;
+				font-family:"微软雅黑";
+				line-height:30px;
+				padding-left:10px;
+	       
+			}
+			#menu  .inul  {
+				/*position:absolute;
+				top:30px;
+				left:0;*/
+				display:none;
+			}
+		
+		</style>
 	</head>
 	<body>
-		
+		<div id="box">
+			<div id="menu">
+				<p >陌生人</p>
+			    <ul class = "inul" >
+					<li>念</li>
+					<li>甲地</li>
+					<li>创新时代</li>
+					<li>古文</li>
+					<li>启程</li>
+				</ul>
+				
+				<p>朋友</p>
+				<ul class = "inul" >
+					<li>黄小爽</li>
+					<li>徐俊</li>
+					<li>向亚雄</li>
+					<li>刘梦结</li>
+					<li>郑春雨</li>
+					<li>邓佳伟</li>
+				</ul>
+
+				<p>家人</p>
+				<ul class = "inul" >
+					<li>念</li>
+					<li>甲地</li>
+					<li>创新时代</li>
+					<li>古文</li>
+					<li>启程</li>
+				</ul>
+				
+				<p>同学</p>
+				<ul class = "inul" >
+					<li>刘梦结</li>
+					<li>郑春雨</li>
+					<li>邓佳伟</li>
+				</ul>
+				
+				<p>工作伙伴</p>
+				<ul class = "inul" >
+					<li>15计科 王敬宾</li>
+					<li>办公室王世蟒</li>
+					<li>何明瑞创业部</li>
+					<li>黄璐</li>
+					<li>启程</li>
+				</ul>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			 var  aMenuLi = document.querySelectorAll('#menu p');
+			 var  aUlli = document.querySelectorAll('.inul');
+			 var  aLi = document.querySelectorAll('li');
+			 var  length = aLi.length;
+			 var  len = aMenuLi.length;
+			 for(var i=0;i<len;i++){
+			 	aMenuLi[i].index=i;
+			 	var on=0;
+			 	var on2=0
+			 	aMenuLi[i].onmouseover=function(){
+			 		aMenuLi[on].style.backgroundColor="";
+			 		on=this.index;
+			 		aMenuLi[on].style.backgroundColor="#D2E5EB";
+			 		//aUlli[this.index].style.display = 'block';
+			 	}
+			 	aMenuLi[i].onclick=function(){
+			 		aUlli[on2].style.display = 'none';
+			 		on2=this.index;
+			 		aUlli[on2].style.display = 'block';
+			 	}
+			 }
+			for(var i=0;i<length;i++)
+			{
+				aLi[i].index = i;
+				var on3=0;
+				aLi[i].onclick  = function(){
+					aLi[on3].style.backgroundColor="";
+			 		on3=this.index;
+			 		aLi[on3].style.backgroundColor="#D2E5EB";
+				}
+			}
+			 
+		</script>
 	</body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var line = prompt('请输入菱形上部分的行数');
+		for(var i=0;i<line;i++){
+			for(var m=0;m<line-i-1;m++){
+				document.write('&nbsp');
+			}
+			for(var j=0;j<i*2+1;j++){
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+		for(var i=0;i<line-1;i++){
+			for(var m=0;m<i+1;m++){
+				document.write('&nbsp');
+			}
+			for(var j=0;j<(line-1-i)*2-1;j++){
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+		</script>
+	</body>
+</html>

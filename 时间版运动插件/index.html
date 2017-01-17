@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:100px;
+				height:100px;
+				background:pink;
+				margin-left:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/javascript">
+			var oBox = document.getElementById('box');
+			move(oBox,{
+				width:'200',
+				height:'200',
+				marginLeft:'300'
+			},2000,function(){
+				oBox.style.background='blue';
+			})						
+			function move(obj,mJson,time,callback){
+				/*
+				 * 获取初始状态值 getstyle
+				 * 设置定时器 设置运动
+				 * 判断运动时间等于设置时间时停止运动,清除定时器.
+				 * */
+				var sNum ={}; //这是一个空的Json 用来存储各属性值初始值 
+				var sTime = new Date(); //获取初始时间戳 
+				for(var i in mJson)
+					sNum[i] = parseFloat(getStyle(obj,i));
+				obj.timer=setInterval(function(){
+					var nTime = new Date(); //获取当前时间;
+					var t_=nTime - sTime; //得到时间差 
+					if(t_ >= time){
+						t_ = time;
+						clearInterval(obj.timer);
+						callback&callback(); //判断是否有回调函数 有就执行
+					}
+					for(var i in mJson){ //遍历是JSon,使运动
+						obj.style[i] = (parseFloat(mJson[i]) - sNum[i])* t_ / time + sNum[i]+'px';
+					}
+				},17);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				function getStyle(obj,attr){
+					return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+				}
+			};
+		</script>
+	</body>
+</html>
