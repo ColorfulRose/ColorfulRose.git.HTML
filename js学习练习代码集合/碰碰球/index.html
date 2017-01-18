@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			.ball{
+				width:50px;
+				height:50px;
+				border-radius: 100%;
+				background:red;
+				position:absolute;
+				left:0;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+		var oBox = document.getElementById('box');
+		    aBall =null;		
+		    n=10;
+		var leftMax =0;
+		var topMax =0;
+		 
+		reSize();
+        window.onresize = reSize;//窗口大小发生改变的时候触发
+		creatDiv(oBox,n);
+		aBall = oBox.children; 
+		
+		setInterval(function(){
+			for(var i=0;i<n;i++){
+				var left = aBall[i].offsetLeft + aBall[i].leftNum;
+                var top = aBall[i].offsetTop + aBall[i].topNum;
+                //判断条件改变运动方向 横向 到达左右边界改变方向
+                if(left>=leftMax){
+                aBall[i].leftNum = -aBall[i].leftNum;
+                left = leftMax;
+                left = aBall[i].offsetLeft+aBall[i].leftNum;
+                randomRgb(aBall[i]);
+                } else if(left<=0){
+                	 aBall[i].leftNum = -aBall[i].leftNum;
+                     left = 0;
+                     left = aBall[i].affsetLeft+aBall[i].leftNum;
+                     randomRgb(aBall[i]);
+                }
+                //纵向方向改变
+                if(top>=topMax){
+                	aBall[i].topNum = - aBall[i].topNum;
+                	top = topMax;
+                	top = aBall[i].offsetTop+aBall[i].toptNum;
+                	randomRgb(aBall[i]);
+                }else if(top<=0){
+                	aBall[i].topNum = - aBall[i].topNum;
+                	top = 0;
+                	top = aBall[i].offsetTop+aBall[i].toptNum;
+                	randomRgb(aBall[i]);
+                }
+            aBall[i].style.left = left+'px';
+            aBall[i].style.top = top+'px';
+			};
+		},30);
+		
+		function reSize(){
+			leftMax = document.documentElement.clientWidth-50;
+			topMax = document.documentElement.clientHeight-50;
+		}
+		function creatDiv(obj,num){
+			for(var i=0;i<num;i++){
+				var oDiv = document.createElement('div');
+				    oDiv.className='ball';
+				oDiv.leftNum=oDiv.topNum = i+1; //运动增加的值,每个运动速度不一样
+				randomRgb(oDiv);//每一个随机生成不同的背景颜色
+				obj.appendChild( oDiv );
+			};
+			
+		};
+		function randomRgb( obj){
+		   	var r =Math.floor (Math.random()*256);
+		   	var g =Math.floor (Math.random()*256);
+		    var b =Math.floor (Math.random()*256);
+		    obj.style.background='rgb('+r+','+g+','+b+")";
+		   }
+			/*var oBall = document.getElementsByClassName('ball');
+			oBall[0].leftNum = 5;
+			oBall[0].topNum = 5;
+			var left =0;
+			var top = 0;
+			var leftMax = document.documentElement.clientWidth-50;
+			var topMax = document.documentElement.clientHeight-50;
+		    
+		    setInterval(function(){
+		    	left = oBall[0].offsetLeft+oBall[0].leftNum;
+                top = oBall[0].offsetTop+oBall[0].topNum;
+                
+                if(left>=leftMax){
+                oBall[0].leftNum = -oBall[0].leftNum;
+                left = leftMax;
+                left = oBall[0].offsetLeft+oBall[0].leftNum;
+                } else if(left<=0){
+                	 oBall[0].leftNum = -oBall[0].leftNum;
+                     left = 0;
+                     left = oBall[0].offsetLeft+oBall[0].leftNum;
+                }
+                if(top>=topMax){
+                	oBall[0].topNum = - oBall[0].topNum;
+                	top = topMax;
+                	top = oBall[0].offsetTop+oBall[0].toptNum;
+                }else if(top<=0){
+                	oBall[0].topNum = - oBall[0].topNum;
+                	top = 0;
+                	top = oBall[0].offsetTop+oBall[0].toptNum;
+                }
+            oBall[0].style.left = left+'px';
+            oBall[0].style.top = top+'px';
+		    },30);
+		    */
+		   
+		   
+		</script>
+	</body>
+</html>
