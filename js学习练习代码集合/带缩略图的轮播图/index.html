@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:326px;
+				height:204px;
+				margin:100px auto;
+				border:1px solid #000;
+				position:relative;
+			}
+			#prev, #next{
+				width:30px;
+				height:30px;
+				background:#ddd;
+				border-radius: 100%;
+				text-align: center;
+				line-height:30px;
+				font-size: 20px;
+				position:absolute;
+				top:calc(50% - 15px);
+			}
+			#prev{left:-17px;}
+			#next{right:-17px;}
+			#box ul{
+				width:100px;
+				height:20px;
+				position:absolute;
+				bottom:0px;
+				left:calc(50% - 50px);
+			}
+			#box ul li {
+				list-style: none;
+				float:left;
+			     width:15px;
+			     height:15px;
+			     border-radius: 100%;
+			     background:#ddd;
+			     margin-right:1px;
+			     position:relative;
+			     }
+			#box ul li.active{background:blue;}
+			#box ul li img {display:none; position:absolute;top:-33px;left:-15px;}
+		</style>
+			
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/m3.jpg" id="showImg" />
+			<div id="prev">&lt;</div>
+			<div id="next">&gt;</div>
+			<ul>
+				<li><img  src="img/m3.jpg" width="50px";height="50px;"/></li>
+				<li><img  src="img/m4.jpg" width="50px";height="50px;"/></li>
+				<li><img  src="img/m5.jpg" width="50px";height="50px;"/></li>
+				<li><img  src="img/s3.jpg" width="50px";height="50px;"/></li>
+				<li><img  src="img/s4.jpg" width="50px";height="50px;"/></li>
+				<li><img  src="img/s5.jpg" width="50px";height="50px;"/></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var arrImg=["img/m3.jpg","img/m4.jpg","img/m5.jpg","img/s3.jpg","img/s4.jpg","img/s5.jpg"];
+			var num=0,on=0;
+			var aLi =box.getElementsByTagName('li');
+			var len=aLi.length;
+			
+			aLi[on].className='active';
+			//圆点控制
+			for(var i=0;i<len;i++){
+				aLi[i].i=i;
+			 	aLi[i].onclick=function(){
+			 		num =this.i;
+			 		aLi[on].className='';
+			 		on=this.i;
+			 		aLi[on].className='active';
+			 		showImg.src = arrImg[this.i];
+			 	};
+			 	aLi[i].onmouseover=function(){
+			 		this.getElementsByTagName('img')[0].style.display='block';
+			 	};
+			 	aLi[i].onmouseout=function(){
+			 		this.getElementsByTagName('img')[0].style.display='none';
+			 	};
+			};
+			//左右按钮控制
+			next.onclick=function(){
+				num++;
+				num %=6;
+				showImg.src=arrImg[num];
+				aLi[on].className='';
+			 	on=aLi[num].i;
+			 	aLi[on].className='active';
+			 	
+			}
+			prev.onclick=function(){
+				num--;
+				if(num<=0)num=5;
+				showImg.src=arrImg[num];
+				/*aLi[on].className='';
+			 	on=aLi[num].i;
+			 	aLi[on].className='active';
+			 	*/
+			 	changeBg(aLi,on,num)
+			}
+			function changeBg(obj,num1,num2){
+				obj[num1].className='';
+			 	num1=obj[num2].i;
+			 	obj[num1].className='active';
+			}
+		</script>
+	</body>
+</html>

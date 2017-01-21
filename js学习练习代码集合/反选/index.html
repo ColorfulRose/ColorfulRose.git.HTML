@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		*{margin:0;padding:0;}
+		#box{
+			margin:100px auto;
+			width:150px;
+			border:1px solid #000;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button id="btn">反选</button><br>
+			<input type="checkbox" /> 苹果<br>
+			<input type="checkbox" /> 香蕉<br>
+			<input type="checkbox" /> 梨<br>
+			<input type="checkbox"/> 火龙果<br>
+			<input type="checkbox" /> 榴莲<br>
+		</div> 
+		<script type="text/javascript">
+		    var oBox = document.getElementById('btn');
+			var aInput = document.querySelectorAll('input');
+			var len = aInput.length;
+			oBox.onclick=function(){
+				for(var i=0;i<len;i++){
+					/*if(aInput[i].checked)
+					{
+						aInput[i].checked=false;
+					}else{
+						aInput[i].checked=true;
+					}*/
+					aInput[i].checked=aInput[i].checked?false:true;
+				}
+				
+			}
+		</script>
+	</body>
+</html>
