@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:325px;
+				height:205px;
+				position:relative;
+				margin:100px auto 0;
+				}
+			#box2{
+				width:325px;
+				height:580px;
+				position:relative;
+				margin:100px auto 200px;				
+			   }
+			.pic img{
+				position:absolute;
+				top:0;
+				left:0;
+				display:none;
+			}
+			.btn{
+				position:absolute;
+				bottom:2px;
+				left:40%;
+			}
+			.btn li{
+				width:15px;
+				height:15px;
+				background:#ddd;
+				list-style:none;
+				float:left;
+				border-radius:100%;
+			}
+			.btn li.on{
+				background:pink;
+			}
+			.prev ,.next{
+				width:40px;
+				height:40px;
+				text-align: center;
+				line-height:35px;
+				font-weight:bold;
+				border-radius:100%;
+				position:absolute;
+				background:#ddd;
+				top:calc(50% - 20px);
+			}
+			.prev{left:-50px;}
+			.next{right:-50px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="pic">
+				<img src="img/m3.jpg">
+				<img src="img/m4.jpg">
+				<img src="img/m5.jpg">
+				<img src="img/s3.jpg">
+			</div>
+			<ul class="btn">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="leftright">
+				<div class="prev">&lt;</div>
+				<div class="next">&gt;</div>
+		    </div>
+		</div>
+		<div id="box2">
+			<div class="pic">
+				<img src="img/g3.jpg" >
+				<img src="img/g4.jpg">
+				<img src="img/g1.jpg">
+			</div>
+			<ul class="btn">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="leftright">
+				<div class="prev">&lt;</div>
+				<div class="next">&gt;</div>
+		    </div>
+		</div>
+		<script type="text/javascript">
+			var apic1 = box.querySelectorAll('img');
+	        var oleftright1 =box.querySelectorAll('.leftright')[0];		
+		    var aDiv1 = oleftright1.querySelectorAll('div');
+		    var aLi1 = box.querySelectorAll(' ul li');
+		    var apic2 =box2.querySelectorAll('img');
+	        var oleftright2 =box2.querySelectorAll('.leftright')[0];
+	        var aDiv2 = oleftright2.querySelectorAll('div');
+		    var aLi2 = box2.querySelectorAll('ul li');
+		   
+		     
+		    active(aLi1,aDiv1,apic1)
+		    active(aLi2,aDiv2,apic2)
+		    function active(butt1,butt2,pict){
+		    	var num=0; 
+		    	var len =butt1.length;
+		    	butt1[num].className='on';
+		    	pict[num].style.display='block';
+		    	//点击li
+		    	for(var i=0;i<len;i++){
+		    		butt1[i].index=i;
+		    		butt1[i].onmouseover=function(){
+		    			num=this.index;
+		    			change();
+		    		};
+		    	};
+		    	//点击左右按钮
+		    	for(var i=0;i<butt2.length;i++){
+		    		butt2[i].i=i;
+		    		butt2[i].onclick=function(){
+		    			if(this.i){
+		    				num++;
+		    				if(num>len-1) num=0;
+		    			}else{
+		    				num--;
+		    				if(num<0) num=len-1;
+		    			}
+		    			change()
+		    		}
+		    	}
+		    	//改变圆点颜色,改变图片
+		    	function change(){
+		    		for(var i=0;i<len;i++){
+		    			butt1[i].className='';
+		    			pict[i].style.display='none';
+		    		};
+		    		butt1[num].className='on';
+		    		pict[num].style.display='block';
+		    	};
+		    };
+		</script>
+	</body>
+</html>

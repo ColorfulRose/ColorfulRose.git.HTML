@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css"></style>
+	</head>
+	<body>
+		请输入qq号码:
+		<input type="text" id="txt" >
+		<input type="button" value ="判断" id="btn"><br>
+		1.有没有输入<br>
+		2.输入的是不是数字<br>
+		3.不能有0在前面<br>
+		4.不能是小数<br>
+		5.输入的数字是5-11位之间
+		<script type="text/javascript">
+			/*var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			
+			oBtn.onclick=function(){
+				var m=0;
+				if(oTxt.value=="") m=1; //不能为空
+				if(typeof (oTxt.value)!=="number"){
+					m=2; //要是数字
+					if(parseInt(oTxt.value)!==parseFloat(oTxt.value))
+						m=3; //不能为小数
+					if(oTxt.value<10000||oTxt.value>99999999999) 
+					    m=4; //要是5-11位之间
+				};
+				switch(m){
+					case 0:
+					   alert('输入正确');
+					   break;
+					case 1:
+					   alert('不能为空');
+					   break;
+					case'2':
+					   alert('qq号码必须为数字');
+					   break;
+					case'3':
+					   alert('qq号码不能为小数');
+				       break;
+				}
+			};*/
+			
+			//oTel.value 获取的内容是字符串  注意注意 
+	/*	var oTxt =document.getElementById('txt');
+        var oBtn =document.getElementById('btn');
+        var mark = true;
+ 
+        oBtn.onclick = function(){
+            var num = oTxt.value;
+            if( num=="" ){
+                alert("请输入内容");
+                mark=false;
+            }else if(isNaN(num)==true){
+                alert("请输入数字");
+                mark = false;
+            }else if(num<"1"){ //字符串比较从第一个字符开始比较
+                alert("第一个数字不能为0");
+                mark = false;
+            }else if(num.length<5||num.length>11){
+                alert("请输入5-11位数字");
+                mark = false;
+            }else if(parseFloat(num)!==parseInt(num))
+            {
+                /*for(var i =0;i<num.length;i++){
+                    if(num.charAt(i)=="."){
+                        alert("不能是小数");
+                        mark=false;
+                    }}*/
+               //    alert("不能是小数");
+            //       mark=!mark;
+         //   }
+         //   if(mark){alert("输入正确");}
+      //  };
+        
+       var oTxt =document.getElementById('txt');
+        var oBtn =document.getElementById('btn');
+        var mark = true;
+ 
+        oBtn.onclick = function(){
+            var num = oTxt.value;
+            var m=0;
+            if( num=="" ){
+                m=1;
+            }else if(isNaN(num)==true){
+               m=2;
+            }else if(num<"1"){ //字符串比较从第一个字符开始比较
+                m=3;
+            }else if(num.length<5||num.length>11){
+               m=4;
+            }else if(parseFloat(num)!==parseInt(num))
+            {
+                /*for(var i =0;i<num.length;i++){
+                    if(num.charAt(i)=="."){
+                        alert("不能是小数");
+                        mark=false;
+                    }}*/
+                  m=5;
+                
+             
+            }
+            switch(m){
+            	case 1:
+            		alert("请输入内容");
+            		break;
+            	case 2:
+            		alert("请输入数字");
+            		break;
+            	case 3:
+            		alert("第一个数字不能为0");
+            		break;
+             	case 4:
+             	    alert("请输入5-11位数字");
+             	    break;
+             	case 5:
+             	    alert("不能是小数");
+             	    break;
+             	case 0:
+             	    alert("输入正确");
+             	    break;
+            }
+            //if(mark){alert("输入正确");}
+        };
+		</script>
+	</body>
+</html>

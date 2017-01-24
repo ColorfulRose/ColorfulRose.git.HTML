@@ -97,19 +97,15 @@
 			}
 			prev.onclick=function(){
 				num--;
-				if(num<=0)num=5;
+				if(num<0)num=5;
 				showImg.src=arrImg[num];
-				/*aLi[on].className='';
+				aLi[on].className='';
 			 	on=aLi[num].i;
 			 	aLi[on].className='active';
-			 	*/
+			 	
 			 	changeBg(aLi,on,num)
 			}
-			function changeBg(obj,num1,num2){
-				obj[num1].className='';
-			 	num1=obj[num2].i;
-			 	obj[num1].className='active';
-			}
+			
 		</script>
 	</body>
 </html>
